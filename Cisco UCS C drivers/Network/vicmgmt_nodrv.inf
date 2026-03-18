@@ -1,0 +1,36 @@
+;
+; VicmgmtDummy.inf
+;
+
+[Version]
+Signature = "$WINDOWS NT$"
+Class     = SoftwareDevice
+ClassGuid = {62f9c741-b25a-46ce-b54c-9bccce08b6f2}
+Provider  = %cisco%
+CatalogFile=vicmgmt_nodrv.cat
+PnpLockdown=1
+DriverVer = 11/13/2024,1.0.0.1
+
+[Manufacturer]
+%cisco%     = Cisco,NTamd64
+
+[Cisco.NTamd64]
+; DisplayName Install Section DeviceID
+; ----------- --------------- --------
+%vicmgmt.desc% = Needs_NO_DRV, PCI\VEN_1137&DEV_0042&SUBSYS_024B1137&REV_A2
+%vicmgmt.desc% = Needs_NO_DRV, PCI\VEN_1137&DEV_0042&SUBSYS_024B1137
+%vicmgmt.desc% = Needs_NO_DRV, PCI\VEN_1137&DEV_0042&CC_00FF00
+%vicmgmt.desc% = Needs_NO_DRV, PCI\VEN_1137&DEV_0042&CC_00FF
+
+[Needs_NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[Needs_NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[Strings]
+cisco               = "Cisco Systems, Inc."
+vicmgmt.desc        = "Cisco VIC Managment Interface"
+

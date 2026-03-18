@@ -1,0 +1,404 @@
+;
+; Copyright 2011-2016 Cisco Systems, Inc.  All rights reserved.
+;
+
+[Version]
+Signature   = "$Chicago$"
+Class       = Net
+ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider    = %cisco%
+Compatible  = 1
+DriverVer = 01/27/2026,5.17.0.12
+CatalogFile = nenic.cat
+PnpLockdown = 1
+
+[Manufacturer]
+%cisco%     = Cisco,NTamd64.10.0...17763,NTamd64.10.0...25398
+
+[Cisco.NTamd64.10.0...17763]
+; DisplayName Install Section DeviceID
+; ----------- --------------- --------
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02151137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02161137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02171137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02181137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02191137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_021a1137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_024a1137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_024b1137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02b01137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02af1137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02cf1137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02d01137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02db1137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02dc1137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02dd1137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02de1137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02df1137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02e01137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02e11137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02e21137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02e81137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02f21137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02e41137
+%enic.desc% = Enic_63,        PCI\VEN_1137&DEV_0043&SUBSYS_02f31137
+
+;------------------------------------------------------------------------
+[Enic_63]
+Characteristics = 0x84
+BusType         = 5
+Port1FunctionNumber = 0
+AddReg          = Interfaces.reg, enic.Reg, vmq.reg, ndkp.reg, encap.reg, nvgre.reg, vxlan.reg, VxlanPort.reg, encap_overhead.reg, Offload.reg, qos.reg
+CopyFiles       = Copyfiles
+*IfType         = 6         ; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0         ; NdisMedium802_3
+*PhysicalMediaType = 14     ; NdisPhysicalMedium802_3
+
+[Enic_63.Services]
+AddService = NENIC, 2, Enic.Service, Common.EventLog
+
+[Enic_63.HW]
+Include=pci.inf
+Needs=PciIoSpaceNotRequired.hw
+AddReg=msi.reg
+
+[Cisco.NTamd64.10.0...25398]
+; DisplayName Install Section DeviceID
+; ----------- --------------- --------
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02151137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02161137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02171137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02181137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02191137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_021a1137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_024a1137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_024b1137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02b01137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02af1137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02cf1137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02d01137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02db1137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02dc1137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02dd1137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02de1137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02df1137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02e01137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02e11137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02e21137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02e81137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02f21137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02e41137
+%enic.desc% = Enic_63.25398,   PCI\VEN_1137&DEV_0043&SUBSYS_02f31137
+
+;------------------------------------------------------------------------
+[Enic_63.25398]
+Characteristics = 0x84
+BusType         = 5
+Port1FunctionNumber = 0
+AddReg          = Interfaces.reg, enic.Reg, vmq.reg, ndkp.reg, encap.reg, nvgre.reg, vxlan.reg, VxlanPort.reg, encap_overhead.reg, Offload.reg, qos.reg, pollmode.reg
+CopyFiles       = Copyfiles
+*IfType         = 6         ; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0         ; NdisMedium802_3
+*PhysicalMediaType = 14     ; NdisPhysicalMedium802_3
+
+[Enic_63.25398.Services]
+AddService = NENIC, 2, Enic.Service.25398, Common.EventLog
+
+[Enic_63.25398.HW]
+Include=pci.inf
+Needs=PciIoSpaceNotRequired.hw
+AddReg=msi.reg
+
+[Interfaces.Reg]
+HKR, Ndi,                    Service,    0, "NENIC"
+HKR, Ndi\Interfaces,         UpperRange, 0, "ndis5"
+HKR, Ndi\Interfaces,         LowerRange, 0, "ethernet"
+
+[msi.reg]
+HKR, "Interrupt Management", 0x00000010
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", 0x00000010
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", MSISupported, 0x00010001, 1
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", MessageNumberLimit, 0x00010001, 128
+
+[enic.reg]
+HKR, Ndi\Params\*RSS,        ParamDesc, , %param.desc.rss%
+HKR, Ndi\Params\*RSS,        default,   , "1"
+HKR, Ndi\Params\*RSS,        type,      , "enum"
+HKR, Ndi\Params\*RSS\enum,   "0",       , %disable%
+HKR, Ndi\Params\*RSS\enum,   "1",       , %enable%
+
+HKR, Ndi\params\*NumRssQueues,          ParamDesc,  0,          %param.desc.rssnumqs%
+HKR, Ndi\params\*NumRssQueues,          type,       0,          "int"
+HKR, Ndi\params\*NumRssQueues,          default,    0,          "8"
+HKR, Ndi\params\*NumRssQueues,          min,        0,          "1"
+HKR, Ndi\params\*NumRssQueues,          max,        0,          "16"
+HKR, Ndi\params\*NumRssQueues,          step,       0,          "1"
+
+HKR, Ndi\Params\*MaxRssProcessors,      ParamDesc,  0,          %param.desc.maxrssprocessors%
+HKR, Ndi\Params\*MaxRssProcessors,      type,       0,          "int"
+HKR, Ndi\Params\*MaxRssProcessors,      default,    0,          "8"
+HKR, Ndi\Params\*MaxRssProcessors,      min,        0,          "1"
+HKR, Ndi\Params\*MaxRssProcessors,      max,        0,          "16"
+
+HKR, Ndi\Params\*RssOnHostVPorts,        ParamDesc, , %param.desc.rssonhostvports%
+HKR, Ndi\Params\*RssOnHostVPorts,        default,   , "1"
+HKR, Ndi\Params\*RssOnHostVPorts,        type,      , "enum"
+HKR, Ndi\Params\*RssOnHostVPorts\enum,   "0",       , %disable%
+HKR, Ndi\Params\*RssOnHostVPorts\enum,   "1",       , %enable%
+
+HKR, Ndi\Params\*InterruptModeration,        ParamDesc, , %param.desc.int%
+HKR, Ndi\Params\*InterruptModeration,        default,   , "1"
+HKR, Ndi\Params\*InterruptModeration,        type,      , "enum"
+HKR, Ndi\Params\*InterruptModeration\enum,   "0",       , %disable%
+HKR, Ndi\Params\*InterruptModeration\enum,   "1",       , %enable%
+
+HKR, Ndi\params\Compatible,          ParamDesc,  0,          %param.desc.compatible%
+HKR, Ndi\params\Compatible,          type,       0,          "int"
+HKR, Ndi\params\Compatible,          default,    0,          "1"
+HKR, Ndi\params\Compatible,          min,        0,          "0"
+HKR, Ndi\params\Compatible,          max,        0,          "4"
+HKR, Ndi\params\Compatible,          step,       0,          "1"
+
+[encap_overhead.reg]
+HKR, Ndi\Params\*JumboPacket, 		ParamDesc, 	0, 	%*JumboPacket%
+HKR, Ndi\Params\*JumboPacket, 		type, 		0, 	"enum"
+HKR, Ndi\Params\*JumboPacket, 		default, 	0, 	"1514"
+HKR, Ndi\Params\*JumboPacket\Enum, 	"1514", 	0, 	%Disabled%
+HKR, Ndi\Params\*JumboPacket\Enum, 	"4088", 	0, 	%Bytes4088%
+HKR, Ndi\Params\*JumboPacket\Enum, 	"9014", 	0, 	%Bytes9014%
+HKR, Ndi\Params\*JumboPacket\Enum, 	"9158", 	0, 	%Bytes9158%
+
+HKR, Ndi\Params\*EncapOverhead, ParamDesc, 0, %EncapsulationOverhead%
+HKR, Ndi\Params\*EncapOverhead, default, 0, "0"
+HKR, Ndi\Params\*EncapOverhead, min, 0, "0"
+HKR, Ndi\Params\*EncapOverhead, max, 0, "256"
+HKR, Ndi\Params\*EncapOverhead, step, 0, "32"
+HKR, Ndi\Params\*EncapOverhead, type, 0, "int"
+
+;
+;VMQ registry keywords - *VMQ
+;
+[Vmq.reg]
+HKR, Ndi\Params\*VMQ,                       ParamDesc,              0, %*VMQ%
+HKR, Ndi\Params\*VMQ,                       default,                0, "1"
+HKR, Ndi\Params\*VMQ\Enum,                  "0",                    0, %Disable%
+HKR, Ndi\Params\*VMQ\Enum,                  "1",                    0, %Enable%
+HKR, Ndi\Params\*VMQ,                       type,                   0, "enum"
+
+;
+;Encapsulation registry keywords - *EncapsulatedPacketTaskOffload
+;
+[Encap.reg]
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffload,                       ParamDesc,              0, %*EncapsulatedPacketTaskOffload%
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffload,                       default,                0, "1"
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffload\Enum,                  "0",                    0, %Disable%
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffload\Enum,                  "1",                    0, %Enable%
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffload,                       type,                   0, "enum"
+
+;
+;Nvgre registry keywords - *EncapsulatedPacketTaskOffloadNvgre
+;
+[Nvgre.reg]
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffloadNvgre,				ParamDesc,              0, %*EncapsulatedPacketTaskOffloadNvgre%
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffloadNvgre,				default,                0, "1"
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffloadNvgre\Enum,			"0",                    0, %Disable%
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffloadNvgre\Enum,           "1",                    0, %Enable%
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffloadNvgre,				type,                   0, "enum"
+
+;
+;Vxlan registry keywords - *EncapsulatedPacketTaskOffloadVxlan
+;
+[Vxlan.reg]
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffloadVxlan,				ParamDesc,              0, %*EncapsulatedPacketTaskOffloadVxlan%
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffloadVxlan,                default,                0, "1"
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffloadVxlan\Enum,           "0",                    0, %Disable%
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffloadVxlan\Enum,           "1",                    0, %Enable%
+HKR, Ndi\Params\*EncapsulatedPacketTaskOffloadVxlan,                type,                   0, "enum"
+
+[VxlanPort.reg]
+HKR, Ndi\params\*VxlanUDPPortNumber, ParamDesc, 0, %*VxlanUDPPortNumber%
+HKR, Ndi\params\*VxlanUDPPortNumber, Type,      0, "dword"
+HKR, Ndi\params\*VxlanUDPPortNumber, Default,   0, "4789"
+HKR, Ndi\params\*VxlanUDPPortNumber, Min,       0, "1"
+HKR, Ndi\params\*VxlanUDPPortNumber, Max,       0, "65535"
+
+[Ndkp.reg]
+HKR, Ndi\Params\*NetworkDirect,         ParamDesc,    0, %*NDKP%
+HKR, Ndi\Params\*NetworkDirect,         type,         0, "enum"
+HKR, Ndi\Params\*NetworkDirect,         default,      0, "1"
+HKR, Ndi\Params\*NetworkDirect\Enum,    "0",          0, %Disable%
+HKR, Ndi\Params\*NetworkDirect\Enum,    "1",          0, %Enable%
+
+HKR, Ndi\Params\*NetworkDirectTechnology,         ParamDesc,    0, %*NDKT%
+HKR, Ndi\Params\*NetworkDirectTechnology,         type,         0, "enum"
+HKR, Ndi\Params\*NetworkDirectTechnology,         default,      0, "4"
+HKR, Ndi\Params\*NetworkDirectTechnology\Enum,    4,            0, "RoCEv2"
+
+HKR, Ndi\Params\*NetworkDirectRoCEFrameSize,         ParamDesc, 0, %roce_mtu%
+HKR, Ndi\Params\*NetworkDirectRoCEFrameSize,         type,      0, "enum"
+HKR, Ndi\Params\*NetworkDirectRoCEFrameSize,         default,   0, "1024"
+HKR, Ndi\Params\*NetworkDirectRoCEFrameSize\Enum,    "256",     0, "256"
+HKR, Ndi\Params\*NetworkDirectRoCEFrameSize\Enum,    "512",     0, "512"
+HKR, Ndi\Params\*NetworkDirectRoCEFrameSize\Enum,    "1024",     0, "1024"
+HKR, Ndi\Params\*NetworkDirectRoCEFrameSize\Enum,    "2048",     0, "2048"
+HKR, Ndi\Params\*NetworkDirectRoCEFrameSize\Enum,    "4096",     0, "4096"
+;
+; Check sum offload and LSO
+;
+[Offload.reg]
+HKR, Ndi\Params\*IPChecksumOffloadIPv4,  ParamDesc, 0, "%IPChecksumOffloadIPv4%"
+HKR, Ndi\Params\*IPChecksumOffloadIPv4,  Type,      0, "enum"
+HKR, Ndi\Params\*IPChecksumOffloadIPv4,  Default,   0, "3"
+HKR, Ndi\Params\*IPChecksumOffloadIPv4,  Optional,  0, "0"
+HKR, Ndi\Params\*IPChecksumOffloadIPv4\enum,	"0",  0, "%disable%"
+HKR, Ndi\Params\*IPChecksumOffloadIPv4\enum,	"1",  0, "%TxEnabled%"
+HKR, Ndi\Params\*IPChecksumOffloadIPv4\enum,	"2",  0, "%RxEnabled%"
+HKR, Ndi\Params\*IPChecksumOffloadIPv4\enum,	"3",  0, "%TxRxEnabled%"
+
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4,  ParamDesc, 0, "%TCPChecksumOffloadIPv4%"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4,  Type,      0, "enum"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4,  Default,   0, "3"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4,  Optional,  0, "0"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4\enum,	"0",  0, "%disable%"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4\enum,	"1",  0, "%TxEnabled%"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4\enum,	"2",  0, "%RxEnabled%"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4\enum,	"3",  0, "%TxRxEnabled%"
+
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4,  ParamDesc, 0, "%UDPChecksumOffloadIPv4%"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4,  Type,      0, "enum"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4,  Default,   0, "3"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4,  Optional,  0, "0"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4\enum,	"0",  0, "%disable%"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4\enum,	"1",  0, "%TxEnabled%"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4\enum,	"2",  0, "%RxEnabled%"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4\enum,	"3",  0, "%TxRxEnabled%"
+
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6,  ParamDesc, 0, "%TCPChecksumOffloadIPv6%"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6,  Type,      0, "enum"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6,  Default,   0, "3"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6,  Optional,  0, "0"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6\enum,	"0",  0, "%disable%"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6\enum,	"1",  0, "%TxEnabled%"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6\enum,	"2",  0, "%RxEnabled%"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6\enum,	"3",  0, "%TxRxEnabled%"
+
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6,  ParamDesc, 0, "%UDPChecksumOffloadIPv6%"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6,  Type,      0, "enum"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6,  Default,   0, "3"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6,  Optional,  0, "0"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6\enum,	"0",  0, "%disable%"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6\enum,	"1",  0, "%TxEnabled%"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6\enum,	"2",  0, "%RxEnabled%"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6\enum,	"3",  0, "%TxRxEnabled%"
+
+HKR, Ndi\Params\*LsoV2IPv4,  ParamDesc, 0, "%LsoV2IPv4%"
+HKR, Ndi\Params\*LsoV2IPv4,  Type,      0, "enum"
+HKR, Ndi\Params\*LsoV2IPv4,  Default,   0, "1"
+HKR, Ndi\Params\*LsoV2IPv4,  Optional,  0, "0"
+HKR, Ndi\Params\*LsoV2IPv4\enum,  "0",  0, "%disable%"
+HKR, Ndi\Params\*LsoV2IPv4\enum,  "1",  0, "%Enable%"
+
+HKR, Ndi\Params\*LsoV2IPv6,  ParamDesc, 0, "%LsoV2IPv6%"
+HKR, Ndi\Params\*LsoV2IPv6,  Type,      0, "enum"
+HKR, Ndi\Params\*LsoV2IPv6,  Default,   0, "1"
+HKR, Ndi\Params\*LsoV2IPv6,  Optional,  0, "0"
+HKR, Ndi\Params\*LsoV2IPv6\enum,  "0",  0, "%disable%"
+HKR, Ndi\Params\*LsoV2IPv6\enum,  "1",  0, "%Enable%"
+
+;
+;NDIS QoS
+;
+[qos.reg]
+HKR, Ndi\Params\*QOS,		ParamDesc,	0,		%*QoS%
+HKR, Ndi\Params\*QOS,		default,	0,		1
+HKR, Ndi\Params\*QOS\Enum,		"0",	0,		%Disable%
+HKR, Ndi\Params\*QOS\Enum,		"1",	0,		%Enable%
+HKR, Ndi\Params\*QOS,		type,		0,		"enum"
+
+;
+; Poll Mode
+;
+[pollmode.reg]
+HKR, Ndi\Params\*NdisPoll,		ParamDesc,	0,		%*NdisPoll%
+HKR, Ndi\Params\*NdisPoll,		default,	0,		1
+;HKR, Ndi\Params\*NdisPoll\Enum,		"0",	0,		%Disable%
+HKR, Ndi\Params\*NdisPoll\Enum,		"1",	0,		%Enable%
+HKR, Ndi\Params\*NdisPoll,		type,		0,		"enum"
+
+
+[Enic.Service]
+DisplayName     = %enic.service.name%
+ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
+StartType       = 3 ;%SERVICE_DEMAND_START%
+ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
+ServiceBinary   = %13%\nenic.sys
+LoadOrderGroup  = NDIS
+
+[Enic.Service.25398]
+DisplayName     = %enic.service.name%
+ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
+StartType       = 3 ;%SERVICE_DEMAND_START%
+ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
+ServiceBinary   = %13%\nenic.sys
+LoadOrderGroup  = NDIS
+BootFlags       = 1
+
+[Common.EventLog]
+AddReg = Common.Addeventlog.Reg
+
+[Common.Addeventlog.Reg]
+HKR, , EventMessageFile, 0x00020000, "%%SystemRoot%%\System32\netevent.dll;%13%\nenic.sys"
+HKR, , TypesSupported,   0x00010001, 7
+
+[SourceDisksNames]
+1 = %cisco.disk%, nenic.sys,,
+
+[SourceDisksFiles]
+nenic.sys = 1,,
+
+[Copyfiles]
+nenic.sys,,,2
+
+[DestinationDirs]
+Copyfiles      = 13,
+
+[Strings]
+cisco               = "Cisco Systems, Inc."
+cisco.disk          = "Cisco Systems, Inc. - Disk 1"
+enic.desc           = "Cisco VIC Ethernet Interface"
+enic.service.name   = "Cisco VIC Ethernet Interface - Gen4+"
+param.desc.rss      = "Receive Side Scaling"
+param.desc.rssnumqs =  "Maximum Number of RSS Queues"
+param.desc.maxrssprocessors = "Maximum  Number of RSS Processors"
+param.desc.rssonhostvports = "Virtual Switch RSS"
+param.desc.int      = "Interrupt Moderation"
+param.desc.compatible = "Compatible Operation"
+enable              = "Enabled"
+disable             = "Disabled"
+*VMQ                = "Virtual Machine Queues"
+DefaultSwitchName   = "Default Switch Name"
+*NDKP               = "NetworkDirect Functionality"
+*NDKT               = "NetworkDirect Technology"
+roce_mtu            = "Network Direct Maximum Transmission Unit"
+*EncapsulatedPacketTaskOffload = "Encapsulated Task Offload"
+*EncapsulatedPacketTaskOffloadNvgre = "Nvgre Encapsulated Task Offload"
+*EncapsulatedPacketTaskOffloadVxlan = "Vxlan Encapsulated Task Offload"
+*VxlanUDPPortNumber = "Vxlan UDP Port Number"
+*JumboPacket = "Jumbo Packet"
+*QoS = "QoS"
+*NdisPoll = "Ndis Poll Mode"
+Disabled = "Bytes 1514"
+Bytes4088 = "Bytes 4088"
+Bytes9014 = "Bytes 9014"
+Bytes9158 = "Bytes 9158"
+EncapsulationOverhead = "Encapsulation overhead"
+TxEnabled = "Tx Enabled"
+RxEnabled = "Rx Enabled"
+TxRxEnabled = "Rx & Tx Enabled"
+IPChecksumOffloadIPv4 = "IPV4 Checksum Offload"
+TCPChecksumOffloadIPv4 = "TCP Checksum Offload (IPv4)"
+TCPChecksumOffloadIPv6 = "TCP Checksum Offload (IPv6)"
+UDPChecksumOffloadIPv4 = "UDP Checksum Offload (IPv4)"
+UDPChecksumOffloadIPv6 = "UDP Checksum Offload (IPv6)"
+LsoV2IPv4 = "Large Send Offload V2 (IPv4)"
+LsoV2IPv6 = "Large Send Offload V2 (IPv6)"
